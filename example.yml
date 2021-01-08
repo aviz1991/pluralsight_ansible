@@ -1,0 +1,10 @@
+---
+- name: Converted adhoc command example
+  hosts: all
+  become: true
+  tasks:
+    - name: user exists with uid 4000
+      user:
+        name: newbie
+        uid: 4000
+        state: present
