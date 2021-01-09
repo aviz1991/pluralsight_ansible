@@ -1,0 +1,18 @@
+#using loops to create the users
+---
+  - name: Create users
+    hosts: all
+    become: true
+    vars:
+      myusers:
+        - avinash
+        - chaitra
+        - laxmi
+        - abhi
+
+    tasks:
+      - name: Create users
+        user:
+          name: "{{ item }}"
+          state: absent
+        loop: "{{ myusers }}"

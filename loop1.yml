@@ -1,0 +1,13 @@
+#Adding users only to dbservers with vars in group_vars
+
+---
+  - name: Add users only in db group
+    hosts: dbservers
+    become: true
+
+    tasks:
+      - name: 
+        user:
+          name: "{{ item }}"
+          state: present
+        loop: "{{ db_users }}"
